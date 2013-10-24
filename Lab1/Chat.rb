@@ -47,7 +47,13 @@ class Chat
 		@server.listen
 		self.start_sending_thread(@server.client_socket)
 		self.start_receiving_thread(@server.client_socket)
-		self.join_threads
+		begin
+			self.join_threads	
+		rescue Interrupt
+			self.stop_receiving_thread
+			self.stop_sending_thread
+		end
+		
 	end
 
 	def stop
