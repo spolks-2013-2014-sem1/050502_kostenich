@@ -19,6 +19,7 @@ class XTCPSocket < XBasicSocket
 		inspect_client(client_addrinfo)
 	end
 	def close
+		@client_socket.close
 		@socket.close
 	end
 end
