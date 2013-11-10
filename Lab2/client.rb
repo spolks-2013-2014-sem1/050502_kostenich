@@ -12,16 +12,18 @@ class Client
 	self.receive_file {|chunk| @file_transfer.create_file_with_chunks(chunk)}
   end
   def receive_file
-  	rs, _ = IO.select([@socket.socket], nil, nil, Constants::TIMEOUT)
-	break unless rs
+  	loop do
+  	  rs, _ = IO.select([@socket.socket], nil, nil, Constants::TIMEOUT)
+	  break unless rs
 
-	if s = rs.shift
-      data = s.recv(Constants::CHUNK_SIZE)
-	  break if data.empty?
-	  if block_given?
-	  	yield data
+	  rs.each do |s|
+        data = s.recv(Constants::CHUNK_SIZE)
+	    return if data.empty?
+	    if block_given?
+	  	  yield data
+	    end
 	  end
-	end
-
+	
+  	end
   end
 end
