@@ -14,4 +14,6 @@ class Constants
 
   READ_FILE_FLAG = 'rb'
   WRITE_FILE_FLAG = 'w'
+
+  OOB_MESSAGE = '#'
 end
