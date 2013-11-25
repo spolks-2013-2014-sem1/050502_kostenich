@@ -1,6 +1,6 @@
 require '../SPOLKS_LIB/Sockets/XTCPSocket.rb'
 require '../SPOLKS_LIB/Utility/UserOptionsParser.rb'
-require 'server.rb'
+require_relative 'server.rb'
 
 parser = UserOptionsParser.new
 options = parser.parse
