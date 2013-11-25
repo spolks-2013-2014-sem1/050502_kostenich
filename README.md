@@ -11,3 +11,6 @@ Lab2:
 	Then connect to this port with typing "ruby client_main -n HOSTNAME -p PORTNUMBER -s SERVERPORT -f FILEPATH" in your terminal.
 	File from server_main application will be copied into file from client_main application.
 	Although, you can use default arguments for applications, just type "ruby <server>/<client>_main -h" in your terminal.
+
+Lab3:
+  The same conditions as in Lab2. Enjoy.
