@@ -4,7 +4,7 @@ require '../SPOLKS_LIB/Utility/FileTransfer.rb'
 class Server
   def initialize(socket, filepath)
     @socket = socket
-	  @file_transfer = FileTransfer.new(filepath, Constants::READ_FILE_FLAG)
+    @file = File.open(filepath, Constants::READ_FILE_FLAG)
     @oob_data = 0
     @send_data = 0
   end
@@ -13,7 +13,7 @@ class Server
 	  self.send_file
   end
   def send_file
-    @file_transfer.divide_file_by_chunks do |chunk|
+    while (chunk = @file.read(Constants::CHUNK_SIZE))
       @socket.client_socket.send(chunk, 0)
       self.get_data_info(chunk)
     end
@@ -33,5 +33,6 @@ class Server
   end
   def stop
 	  @socket.close
+    @file.close
   end
 end
