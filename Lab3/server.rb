@@ -1,5 +1,4 @@
 require '../SPOLKS_LIB/Sockets/XTCPSocket.rb'
-require '../SPOLKS_LIB/Utility/FileTransfer.rb'
 
 class Server
   def initialize(socket, filepath)
