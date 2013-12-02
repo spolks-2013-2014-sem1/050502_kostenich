@@ -6,6 +6,9 @@ class UserOptions
 		@options[:host_name] = Constants::DEFAULT_HOST_NAME
 		@options[:port_number] = Constants::DEFAULT_PORT_NUMBER
 	end
+	def set_udp_socket
+		@options[:udp] = true
+	end
 	def set_host_name(name)
 		if(name != nil) 
 			@options[:host_name] = name
@@ -21,6 +24,9 @@ class UserOptions
 	end
 	def set_filepath(path)
 		@options[:filepath] = path
+	end
+	def get_udp_socket
+		return @options[:udp]
 	end
 	def get_host_name
 		return @options[:host_name]

@@ -11,6 +11,10 @@ class UserOptionsParser
 			opt.separator ""
 			opt.separator "SPECIFIC OPTIONS:"
 
+			opt.on("-u", "Use UDP socket") do
+				@options.set_udp_socket
+			end
+
 			opt.on("-n HOSTNAME", "Hostname for creating socket. By default: localhost") do |n|
 				@options.set_host_name(n)
 			end
