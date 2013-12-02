@@ -1,6 +1,6 @@
 require '../SPOLKS_LIB/Sockets/XTCPSocket.rb'
 
-class Client
+class TCPClient
   def initialize(socket, filepath)
     @socket = socket
     @file = File.open(filepath, Constants::WRITE_FILE_FLAG)
