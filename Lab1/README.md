@@ -1,4 +1,4 @@
-050502_kostenich
+Lab1
 ================
 
 Telnet-based chat
