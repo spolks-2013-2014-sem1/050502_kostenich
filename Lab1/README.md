@@ -15,7 +15,7 @@ Manual
 
 Start chat "server" with next operation:
 
-  $ ruby main.rb -n HOSTNAME -p PORTNUMBER
+    $ ruby main.rb -n HOSTNAME -p PORTNUMBER
 
 Then connect to this port via telnet.
 
