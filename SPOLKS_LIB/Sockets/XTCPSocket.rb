@@ -7,9 +7,11 @@ class XTCPSocket < XBasicSocket
     @socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_REUSEADDR, true)
     @sockaddr = Socket.sockaddr_in(port_number, host_name)
   end
-  def listen
+  def bind
     @socket.bind(@sockaddr)
     @socket.listen(Constants::BACKLOG_VALUE)
+  end
+  def listen
     self.accept
   end
   def connect(sockaddr)

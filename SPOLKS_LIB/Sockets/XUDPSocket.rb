@@ -7,8 +7,10 @@ class XUDPSocket < XBasicSocket
     @socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_REUSEADDR, true)
     @sockaddr = Socket.sockaddr_in(port_number, host_name)
   end
-  def listen
+  def bind
     @socket.bind(@sockaddr)
+  end
+  def listen
     self.accept
   end
   def accept
