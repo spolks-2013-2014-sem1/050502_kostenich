@@ -7,6 +7,7 @@ class Server
 	  @file = File.open(filepath, Constants::READ_FILE_FLAG)
   end
   def start
+    @socket.bind
 	  @socket.listen
 	  self.send_file
   end
