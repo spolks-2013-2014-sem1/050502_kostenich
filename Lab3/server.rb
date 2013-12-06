@@ -8,6 +8,7 @@ class TCPServer
     @send_data = 0
   end
   def start
+    @socket.bind
 	  @socket.listen
 	  self.send_file
   end
