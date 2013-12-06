@@ -14,6 +14,7 @@ class TCPServer
   def send_file
     while (chunk = @file.read(Constants::CHUNK_SIZE))
       @socket.client_socket.send(chunk, 0)
+      sleep(Constants::DELAY_BETWEEN_CHUNKS)
       self.get_data_info(chunk)
     end
   end

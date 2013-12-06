@@ -18,7 +18,7 @@ class TCPClient
 
       us.each do |s|
         begin
-          s.recv(1, Socket::MSG_OOB)  
+          puts s.recv(1, Socket::MSG_OOB)  
           puts @received_data
         rescue Exception => e
           next
