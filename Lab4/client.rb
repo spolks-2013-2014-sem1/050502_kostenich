@@ -18,7 +18,7 @@ class UDPClient
       break unless rs
 
       rs.each do |s|
-        data = s.recv(Constants::CHUNK_SIZE)
+        data = s.recv(Constants::CHUNK_SIZE / Constants::CHUNK_SIZE_DIVIDER_FOR_UDP)
 	      return if (data.empty? || data == Constants::UDP_MESSAGE)
 	      if block_given?
 	  	    yield data
