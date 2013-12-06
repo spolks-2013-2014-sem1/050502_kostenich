@@ -1,7 +1,9 @@
 class Constants
   BACKLOG_VALUE = 5
-  CHUNK_SIZE = 1024 * 8
+  CHUNK_SIZE = 1024 * 64
+  CHUNK_SIZE_DIVIDER_FOR_UDP = 8
   TIMEOUT = 10
+  DELAY_BETWEEN_CHUNKS = 0.01
 
   CONNECTED_CLIENT_WAS = "Connected client is:"
   SERVER_IS_OFFLINE = "Server is currently offline."
