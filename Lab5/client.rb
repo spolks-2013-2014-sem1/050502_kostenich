@@ -39,6 +39,7 @@ class TCPClient
     @socket.connect(sockaddr)
     self.receive_file {|chunk| @file.write(chunk)}
     @file.close
+    @socket.close
   end
   def receive_file
     loop do
@@ -47,7 +48,6 @@ class TCPClient
       us.each do |s|
         begin
           puts s.recv(1, Socket::MSG_OOB)  
-          puts @received_data
         rescue Exception => e
           next
         end

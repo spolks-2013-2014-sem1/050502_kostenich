@@ -14,6 +14,12 @@ class XTCPSocket < XBasicSocket
   def listen
     self.accept
   end
+  def listen_nonblock
+    begin
+      @client_socket, client_addrinfo = @socket.accept_nonblock  
+    rescue 
+    end
+  end
   def connect(sockaddr)
     @socket.connect(sockaddr)
   end
@@ -22,7 +28,6 @@ class XTCPSocket < XBasicSocket
     inspect_client(client_addrinfo)
   end
   def close
-    @client_socket.close
     @socket.close
   end
 end
