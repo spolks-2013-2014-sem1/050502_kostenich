@@ -31,6 +31,7 @@ class TCPServer
     @send_data = 0
     @connections = {}
     @last_client = nil
+    @first_time = true
   end 
   def start
     @socket.bind
@@ -39,6 +40,7 @@ class TCPServer
   def send_file
     loop do
       if(@first_time)
+        @first_time = false
         @socket.listen
       else
         @socket.listen_nonblock
